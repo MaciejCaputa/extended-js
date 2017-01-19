@@ -28,7 +28,7 @@ Number.prototype.ceil = function() {
  */
 Number.prototype.round = function() {
   if (isNaN(this)) return NaN;
-  return
+  return Math.round(this);
 }
 
 /**
@@ -36,7 +36,7 @@ Number.prototype.round = function() {
  */
 Number.prototype.sign = function() {
   if (isNaN(this)) return NaN;
-  return
+  return Math.sign(this);
 }
 
 /**
