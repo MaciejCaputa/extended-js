@@ -14,21 +14,21 @@ Array.prototype.first = function() {
  * @returns last {Element} of an array.
  */
 Array.prototype.last = function() {
-  return this.slice(-1);
+  return this.slice(-1)[0];
 }
 
 /**
  * @returns {Array} which is shuffled.
  */
 Array.prototype.shuffle = function() {
-  return this.sort(() => Math.random() - 0.5)
+  return this.slice().sort(() => Math.random() - 0.5)
 }
 
 /**
  * @returns random {Element} of the array.
  */
 Array.prototype.random = function() {
-  return this[Math.floor(Math.random * this.length)];
+  return this[Math.floor(Math.random() * this.length)];
 }
 
 /**
@@ -70,7 +70,7 @@ Array.prototype.max = function() {
  * @returns {Array} which is sorted descendingly.
  */
 Array.prototype.sortDesc = function() {
-  return this.sort().reverse();
+  return this.sort((a,b) => a-b).reverse();
 }
 
 /**
@@ -80,8 +80,20 @@ Array.prototype.sortDesc = function() {
  * @returns {Array} which which is range [start,end) which consist of all integers divisible by step.
  */
 Array.range = function(start, end = 0, step = 1) {
-  return Array(~~(~(end - start) / step))
-            .map((e, idx, arr) => idx === 0 ? 0 : arr[idx - 1] + step);
+  let range = Math.abs(end - start) - 1;
+  range /= Math.abs(step);
+  range = ~~range;
+  console.log(range);
+
+
+  let arr = Array(range);
+  console.log(arr);
+
+  for (let i = 0; i <= range; i++) {
+    arr[i] = i === 0 ? start : arr[i - 1] + step;
+  }
+  console.log(arr);
+  return arr;
 }
 
 /**
