@@ -83,16 +83,15 @@ Array.range = function(start, end = 0, step = 1) {
   let range = Math.abs(end - start) - 1;
   range /= Math.abs(step);
   range = ~~range;
-  console.log(range);
-
 
   let arr = Array(range);
-  console.log(arr);
+
+  start = start - end === start ? 0 : start;
 
   for (let i = 0; i <= range; i++) {
     arr[i] = i === 0 ? start : arr[i - 1] + step;
   }
-  console.log(arr);
+
   return arr;
 }
 

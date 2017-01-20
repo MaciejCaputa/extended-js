@@ -66,8 +66,12 @@ describe('Array', () => {
     expect(Array.range(0, -10, -2)).toEqual([0, -2, -4, -6, -8]);
   });
 
+  var
+    arr1 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+    arr2 = ['a', 'b', 'c'];
+    
   it('zip()', () => {
-    expect(Array.zip(arr1, arr2)).toEqual([0, 1, 2, 3]);
+    expect(Array.zip(arr1, arr2)).toEqual([[1, 'a'], [2, 'b'], [3, 'c']]);
   });
 
 });

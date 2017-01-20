@@ -2,14 +2,18 @@
  * @file
  * @description
  */
- 
+
 /**
  * @param {Number} start
  * @param {Number} end
  * @returns {Number} integer in range [start,end).
  */
 Math.randInt = function(start, end) {
-  return Math.floor(Math.random() * (start - end) + start);
+  if (end === undefined) {
+    return Math.floor(Math.random() * start);
+  } else {
+    return Math.floor(Math.random() * (end - start) + start);
+  }
 }
 
 /**
@@ -18,7 +22,7 @@ Math.randInt = function(start, end) {
  * @returns {Number} GCD of a and b.
  */
 Math.gcd = function (a, b) {
-  return !b ? a : gcd(b, a % b);
+  return !b ? a : Math.gcd(b, a % b);
 }
 
 /**
