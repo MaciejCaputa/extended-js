@@ -166,7 +166,8 @@ Math.calculate = function (a, operation, b) {
  */
 Number.prototype.abs = function() {
   if (isNaN(this)) return NaN;
-  return ~this + 1;
+  console.log((this ^ (this >> 31)) - (this >> 31));
+  return this >= 0 ? this : -this;
 }
 
 /**
@@ -182,7 +183,7 @@ Number.prototype.trunc = function() {
  */
 Number.prototype.floor = function() {
   if (isNaN(this)) return NaN;
-  return ~~this;
+  return this >= 0 ? ~~this : ~~this - 1;
 }
 
 /**
@@ -190,7 +191,7 @@ Number.prototype.floor = function() {
  */
 Number.prototype.ceil = function() {
   if (isNaN(this)) return NaN;
-  return ~~this + 1;
+  return this >= 0 ? ~~this + 1: ~~this;
 }
 
 /**
@@ -198,7 +199,7 @@ Number.prototype.ceil = function() {
  */
 Number.prototype.round = function() {
   if (isNaN(this)) return NaN;
-  return Math.round(this);
+  return this >= 0 ? ~~(this + 0.5) : ~~(this - 0.5);
 }
 
 /**
