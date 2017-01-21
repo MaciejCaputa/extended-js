@@ -172,6 +172,14 @@ Number.prototype.abs = function() {
 /**
  * @returns {Number}
  */
+Number.prototype.trunc = function() {
+  if (isNaN(this)) return NaN;
+  return ~~this;
+}
+
+/**
+ * @returns {Number}
+ */
 Number.prototype.floor = function() {
   if (isNaN(this)) return NaN;
   return ~~this;
@@ -199,14 +207,6 @@ Number.prototype.round = function() {
 Number.prototype.sign = function() {
   if (isNaN(this)) return NaN;
   return Math.sign(this);
-}
-
-/**
- * @returns {Number}
- */
-Number.prototype.trunc = function() {
-  if (isNaN(this)) return NaN;
-  return ~~this;
 }
 
 //# sourceMappingURL=index.es2016.js.map

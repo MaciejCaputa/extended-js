@@ -1,8 +1,8 @@
 /**
- * @file
+ * @file math.spec.js
  * @description
  */
-describe('Number', function() {
+describe('Math', function() {
 
   it('randInt(start, end)', () => {
     expect(Math.randInt(10)).toBeLessThan(10);
