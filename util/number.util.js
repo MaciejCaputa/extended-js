@@ -47,3 +47,19 @@ Number.prototype.sign = function() {
   if (isNaN(this)) return NaN;
   return Math.sign(this);
 }
+
+/**
+ * @param {Number} number
+ * @returns {Boolean} determining if the number is an integer.
+ */
+Number.isInteger = function() {
+  return this - Math.floor(this) === 0;
+}
+
+/**
+ * @param {Number} number
+ * @returns {Boolean} determining if the number is an integer.
+ */
+Number.isDecimal = function() {
+  return this - Math.floor(this) != 0;
+}
